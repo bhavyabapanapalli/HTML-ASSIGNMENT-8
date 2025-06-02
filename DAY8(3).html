@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Repeated Element Checker</title>
+</head>
+<body>
+  <script>
+    // Prompt user to enter elements separated by commas
+    let input = prompt("Enter elements separated by commas (e.g., a,b,c,a):");
+
+    // Split the input into an array
+    let elements = input.split(",").map(el => el.trim());
+
+    // Use a Set to track unique elements
+    let seen = new Set();
+    let repeated = [];
+
+    for (let el of elements) {
+      if (seen.has(el)) {
+        if (!repeated.includes(el)) {
+          repeated.push(el);
+        }
+      } else {
+        seen.add(el);
+      }
+    }
+
+    // Show result
+    if (repeated.length > 0) {
+      alert("Repeated elements: " + repeated.join(", "));
+    } else {
+      alert("No repeated elements.");
+    }
+  </script>
+</body>
+</html>
